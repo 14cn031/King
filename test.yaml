@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+  gather_facts: true
+  tasks:
+  - name: test
+    shell: hostname
+    register: host_out
+
+  - debug:  
+      msg: "hostnmae of te server is: {{ ansible_nodename }} date is:{{ ansible_date_time.date }} time is: {{ ansible_date_time.time }}"
+
